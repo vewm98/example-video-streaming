@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Client</title>
+</head>
+<body>
+    <img src="" alt="">
+    <script>
+        // get img dom element
+        const img = document.querySelector('img');
+        
+        const WS_URL = 'ws://192.168.107.136:8090/wsin';
+        
+        const ws = new WebSocket(WS_URL);
+        ws.onopen = () => console.log(`Connected to ${WS_URL}`);
+
+        ws.onmessage = message => {
+            img.src=message.data;
+        }
+    </script>
+</body>
+</html>
